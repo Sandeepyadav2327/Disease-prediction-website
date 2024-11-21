@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Evaluation Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 10px;
+            background-color: #ec8fd3;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        .button-container {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Heart Disease Evaluation Form</h1>
+    <form id="heartDiseaseForm" onsubmit="event.preventDefault(); displayData();">
+        
+        <!-- Medical History and Symptoms Section -->
+        <div class="form-section">
+            <h2>Medical History & Symptoms</h2>
+            <label for="personalHistory">Personal Medical History</label>
+            <textarea id="personalHistory" name="personalHistory" rows="4" placeholder="Enter details about any personal history of heart disease, hypertension, diabetes, etc."></textarea>
+
+            <label for="familyHistory">Family History of Heart Disease</label>
+            <textarea id="familyHistory" name="familyHistory" rows="4" placeholder="Describe any family history of heart disease or related conditions."></textarea>
+
+            <label for="lifestyleFactors">Lifestyle Factors</label>
+            <textarea id="lifestyleFactors" name="lifestyleFactors" rows="4" placeholder="Enter information about diet, exercise, smoking, alcohol use, etc."></textarea>
+
+            <label for="symptoms">Symptoms</label>
+            <textarea id="symptoms" name="symptoms" rows="4" placeholder="Describe any symptoms like chest pain, shortness of breath, fatigue, etc."></textarea>
+        </div>
+
+        <!-- Physical Examination Section -->
+        <div class="form-section">
+            <h2>Physical Examination</h2>
+            <label for="bloodPressure">Blood Pressure (mmHg)</label>
+            <input type="text" id="bloodPressure" name="bloodPressure" placeholder="e.g., 120/80">
+
+            <label for="heartRate">Heart Rate (bpm)</label>
+            <input type="number" id="heartRate" name="heartRate" placeholder="e.g., 70">
+
+            <label for="bmi">Body Mass Index (BMI)</label>
+            <input type="number" id="bmi" name="bmi" step="0.1" placeholder="e.g., 24.5">
+
+            <label for="swelling">Signs of Fluid Retention (Swelling in Legs/Ankles)</label>
+            <input type="text" id="swelling" name="swelling" placeholder="Yes/No">
+
+            <label for="heartSounds">Heart Sounds (Murmurs/Irregular Beats)</label>
+            <input type="text" id="heartSounds" name="heartSounds" placeholder="Normal/Abnormal">
+        </div>
+
+        <!-- Laboratory Tests Section -->
+        <div class="form-section">
+            <h2>Laboratory Tests</h2>
+            <label for="cholesterol">Cholesterol Levels (Total, LDL, HDL, Triglycerides)</label>
+            <input type="text" id="cholesterol" name="cholesterol" placeholder="Enter cholesterol values (e.g., Total: 200, LDL: 120, HDL: 50, Triglycerides: 150)">
+
+            <label for="bloodGlucose">Blood Glucose Level</label>
+            <input type="number" id="bloodGlucose" name="bloodGlucose" placeholder="e.g., 90">
+
+            <label for="crp">C-reactive Protein (CRP) Level</label>
+            <input type="number" id="crp" name="crp" placeholder="e.g., 3.5 mg/L">
+
+            <label for="troponin">Troponin Levels</label>
+            <input type="number" id="troponin" name="troponin" placeholder="e.g., 0.01 ng/mL">
+
+            <label for="homocysteine">Homocysteine Level</label>
+            <input type="number" id="homocysteine" name="homocysteine" placeholder="e.g., 12 µmol/L">
+        </div>
+
+        <!-- Stress Testing and Imaging Section -->
+        <div class="form-section">
+            <h2>Stress Testing & Imaging</h2>
+            <label for="stressTest">Stress Test Results</label>
+            <textarea id="stressTest" name="stressTest" rows="4" placeholder="Enter results of exercise or pharmacological stress tests."></textarea>
+
+            <label for="cardiacImaging">Cardiac Imaging (CT, MRI, Angiography)</label>
+            <textarea id="cardiacImaging" name="cardiacImaging" rows="4" placeholder="Enter results of any cardiac imaging tests."></textarea>
+        </div>
+
+        <!-- Risk Factors Section -->
+        <div class="form-section">
+            <h2>Risk Factors</h2>
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" placeholder="Enter your age">
+
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="smoking">Smoking Status</label>
+            <select id="smoking" name="smoking">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="former">Former</option>
+            </select>
+
+            <label for="obesity">Obesity (BMI 30 or greater)</label>
+            <select id="obesity" name="obesity">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="diabetes">Diabetes</label>
+            <select id="diabetes" name="diabetes">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="button-container">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <!-- Display Result Section -->
+    <div id="result" class="result" style="display: none;">
+        <h2>Entered Data</h2>
+        <p><strong>Medical History & Symptoms:</strong></p>
+        <p>Personal Medical History: <span id="result_personalHistory"></span></p>
+        <p>Family History of Heart Disease: <span id="result_familyHistory"></span></p>
+        <p>Lifestyle Factors: <span id="result_lifestyleFactors"></span></p>
+        <p>Symptoms: <span id="result_symptoms"></span></p>
+
+        <p><strong>Physical Examination:</strong></p>
+        <p>Blood Pressure: <span id="result_bloodPressure"></span></p>
+        <p>Heart Rate: <span id="result_heartRate"></span></p>
+        <p>BMI: <span id="result_bmi"></span></p>
+        <p>Swelling: <span id="result_swelling"></span></p>
+        <p>Heart Sounds: <span id="result_heartSounds"></span></p>
+
+        <p><strong>Laboratory Tests:</strong></p>
+        <p>Cholesterol: <span id="result_cholesterol"></span></p>
+        <p>Blood Glucose: <span id="result_bloodGlucose"></span></p>
+        <p>CRP: <span id="result_crp"></span></p>
+        <p>Troponin: <span id="result_troponin"></span></p>
+        <p>Homocysteine: <span id="result_homocysteine"></span></p>
+
+        <p><strong>Stress Testing & Imaging:</strong></p>
+        <p>Stress Test Results: <span id="result_stressTest"></span></p>
+        <p>Cardiac Imaging: <span id="result_cardiacImaging"></span></p>
+
+        <p><strong>Risk Factors:</strong></p>
+        <p>Age: <span id="result_age"></span></p>
+        <p>Gender: <span id="result_gender"></span></p>
+        <p>Smoking: <span id="result_smoking"></span></p>
+        <p>Obesity: <span id="result_obesity"></span></p>
+        <p>Diabetes: <span id="result_diabetes"></span></p>
+    </div>
+
+    <script>
+        function displayData() {
+            // Grab values from the form fields
+            document.getElementById('result_personalHistory').textContent = document.getElementById('personalHistory').value;
+            document.getElementById('result_familyHistory').textContent = document.getElementById('familyHistory').value;
+            document.getElementById('result_lifestyleFactors').textContent = document.getElementById('lifestyleFactors').value;
+            document.getElementById('result_symptoms').textContent = document.getElementById('symptoms').value;
+
+            document.getElementById('result_bloodPressure').textContent = document.getElementById('bloodPressure').value;
+            document.getElementById('result_heartRate').textContent = document.getElementById('heartRate').value;
+            document.getElementById('result_bmi').textContent = document.getElementById('bmi').value;
+            document.getElementById('result_swelling').textContent = document.getElementById('swelling').value;
+            document.getElementById('result_heartSounds').textContent = document.getElementById('heartSounds').value;
+
+            document.getElementById('result_cholesterol').textContent = document.getElementById('cholesterol').value;
+            document.getElementById('result_bloodGlucose').textContent = document.getElementById('bloodGlucose').value;
+            document.getElementById('result_crp').textContent = document.getElementById('crp').value;
+            document.getElementById('result_troponin').textContent = document.getElementById('troponin').value;
+            document.getElementById('result_homocysteine').textContent = document.getElementById('homocysteine').value;
+
+            document.getElementById('result_stressTest').textContent = document.getElementById('stressTest').value;
+            document.getElementById('result_cardiacImaging').textContent = document.getElementById('cardiacImaging').value;
+
+            document.getElementById('result_age').textContent = document.getElementById('age').value;
+            document.getElementById('result_gender').textContent = document.getElementById('gender').value;
+            document.getElementById('result_smoking').textContent = document.getElementById('smoking').value;
+            document.getElementById('result_obesity').textContent = document.getElementById('obesity').value;
+            document.getElementById('result_diabetes').textContent = document.getElementById('diabetes').value;
+
+            // Display the result section
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Disease Evaluation Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 10px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        .button-container {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #e8f5e9;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lung Disease Evaluation Form</h1>
+    <form id="lungForm">
+        
+        <!-- Medical History Section -->
+        <div class="form-section">
+            <h2>Medical History</h2>
+            <label for="personalHistory">Personal Medical History</label>
+            <textarea id="personalHistory" name="personalHistory" rows="4" placeholder="Enter details about any personal history of lung diseases, infections, etc."></textarea>
+
+            <label for="familyHistory">Family History of Lung Disease</label>
+            <textarea id="familyHistory" name="familyHistory" rows="4" placeholder="Describe any family history of lung disease, asthma, cancer, etc."></textarea>
+
+            <label for="environmentalExposure">Environmental Exposure</label>
+            <textarea id="environmentalExposure" name="environmentalExposure" rows="4" placeholder="Enter any exposure to harmful substances (e.g., smoking, chemicals, asbestos)."></textarea>
+
+            <label for="immunizationHistory">Immunization History</label>
+            <textarea id="immunizationHistory" name="immunizationHistory" rows="4" placeholder="Enter vaccination history (e.g., flu, pneumonia, tuberculosis)."></textarea>
+        </div>
+
+        <!-- Symptoms Section -->
+        <div class="form-section">
+            <h2>Symptoms</h2>
+            <label for="cough">Cough (Dry/Productive)</label>
+            <input type="text" id="cough" name="cough" placeholder="Enter details of cough (e.g., dry, productive, duration, etc.)">
+
+            <label for="shortnessOfBreath">Shortness of Breath (Dyspnea)</label>
+            <input type="text" id="shortnessOfBreath" name="shortnessOfBreath" placeholder="Enter details about shortness of breath">
+
+            <label for="chestPain">Chest Pain</label>
+            <input type="text" id="chestPain" name="chestPain" placeholder="Enter any chest pain details">
+
+            <label for="wheezing">Wheezing</label>
+            <input type="text" id="wheezing" name="wheezing" placeholder="Enter any details about wheezing">
+
+            <label for="hemoptysis">Hemoptysis (Coughing up blood)</label>
+            <input type="text" id="hemoptysis" name="hemoptysis" placeholder="Enter any hemoptysis details">
+        </div>
+
+        <!-- Risk Factors Section -->
+        <div class="form-section">
+            <h2>Risk Factors</h2>
+            <label for="smokingHistory">Smoking History</label>
+            <select id="smokingHistory" name="smokingHistory">
+                <option value="none">None</option>
+                <option value="former">Former Smoker</option>
+                <option value="current">Current Smoker</option>
+            </select>
+
+            <label for="exposureHistory">Occupational Exposure</label>
+            <textarea id="exposureHistory" name="exposureHistory" rows="4" placeholder="Enter details of occupational exposure to harmful substances like dust, chemicals, etc."></textarea>
+
+            <label for="airPollution">Air Pollution Exposure</label>
+            <select id="airPollution" name="airPollution">
+                <option value="none">None</option>
+                <option value="urban">Urban Area</option>
+                <option value="industrial">Industrial Area</option>
+            </select>
+        </div>
+
+        <!-- Physical Exam Section -->
+        <div class="form-section">
+            <h2>Physical Examination</h2>
+            <label for="breathSounds">Breath Sounds</label>
+            <input type="text" id="breathSounds" name="breathSounds" placeholder="Normal/Abnormal">
+
+            <label for="chestExpansion">Chest Expansion</label>
+            <input type="text" id="chestExpansion" name="chestExpansion" placeholder="Normal/Reduced">
+
+            <label for="cyanosis">Cyanosis (Bluish discoloration of lips/fingers)</label>
+            <input type="text" id="cyanosis" name="cyanosis" placeholder="Yes/No">
+        </div>
+
+        <!-- Submit Button -->
+        <div class="button-container">
+            <button type="button" onclick="showData()">Submit</button>
+        </div>
+    </form>
+
+    <!-- Data Display Section -->
+    <div id="output" style="display:none;">
+        <h2>Entered Data:</h2>
+        <div><strong>Personal Medical History:</strong> <span id="outPersonalHistory"></span></div>
+        <div><strong>Family History of Lung Disease:</strong> <span id="outFamilyHistory"></span></div>
+        <div><strong>Environmental Exposure:</strong> <span id="outEnvironmentalExposure"></span></div>
+        <div><strong>Immunization History:</strong> <span id="outImmunizationHistory"></span></div>
+
+        <div><strong>Cough:</strong> <span id="outCough"></span></div>
+        <div><strong>Shortness of Breath:</strong> <span id="outShortnessOfBreath"></span></div>
+        <div><strong>Chest Pain:</strong> <span id="outChestPain"></span></div>
+        <div><strong>Wheezing:</strong> <span id="outWheezing"></span></div>
+        <div><strong>Hemoptysis:</strong> <span id="outHemoptysis"></span></div>
+
+        <div><strong>Smoking History:</strong> <span id="outSmokingHistory"></span></div>
+        <div><strong>Occupational Exposure:</strong> <span id="outExposureHistory"></span></div>
+        <div><strong>Air Pollution Exposure:</strong> <span id="outAirPollution"></span></div>
+
+        <div><strong>Breath Sounds:</strong> <span id="outBreathSounds"></span></div>
+        <div><strong>Chest Expansion:</strong> <span id="outChestExpansion"></span></div>
+        <div><strong>Cyanosis:</strong> <span id="outCyanosis"></span></div>
+    </div>
+
+    <script>
+        function showData() {
+            // Retrieve form data
+            document.getElementById("outPersonalHistory").innerText = document.getElementById("personalHistory").value;
+            document.getElementById("outFamilyHistory").innerText = document.getElementById("familyHistory").value;
+            document.getElementById("outEnvironmentalExposure").innerText = document.getElementById("environmentalExposure").value;
+            document.getElementById("outImmunizationHistory").innerText = document.getElementById("immunizationHistory").value;
+
+            document.getElementById("outCough").innerText = document.getElementById("cough").value;
+            document.getElementById("outShortnessOfBreath").innerText = document.getElementById("shortnessOfBreath").value;
+            document.getElementById("outChestPain").innerText = document.getElementById("chestPain").value;
+            document.getElementById("outWheezing").innerText = document.getElementById("wheezing").value;
+            document.getElementById("outHemoptysis").innerText = document.getElementById("hemoptysis").value;
+
+            document.getElementById("outSmokingHistory").innerText = document.getElementById("smokingHistory").value;
+            document.getElementById("outExposureHistory").innerText = document.getElementById("exposureHistory").value;
+            document.getElementById("outAirPollution").innerText = document.getElementById("airPollution").value;
+
+            document.getElementById("outBreathSounds").innerText = document.getElementById("breathSounds").value;
+            document.getElementById("outChestExpansion").innerText = document.getElementById("chestExpansion").value;
+            document.getElementById("outCyanosis").innerText = document.getElementById("cyanosis").value;
+
+            // Show the output section
+            document.getElementById("output").style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>

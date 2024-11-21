@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typhoid Fever Evaluation Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 10px;
+            background-color: #f07cd3;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        .button-container {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            display: none;
+        }
+        .output-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Typhoid Fever Evaluation Form</h1>
+    <form id="typhoidForm">
+        
+        <!-- Medical History Section -->
+        <div class="form-section">
+            <h2>Medical History</h2>
+            <label for="personalHistory">Personal Medical History</label>
+            <textarea id="personalHistory" name="personalHistory" rows="4" placeholder="Enter any history of chronic illnesses (e.g., liver or kidney disease)"></textarea>
+
+            <label for="vaccination">Vaccination History</label>
+            <input type="text" id="vaccination" name="vaccination" placeholder="Enter vaccination status (e.g., Yes/No)">
+
+            <label for="recentTravel">Recent Travel History</label>
+            <textarea id="recentTravel" name="recentTravel" rows="4" placeholder="Enter details about recent travel to high-risk regions"></textarea>
+
+            <label for="contactHistory">Contact History (Exposed to Typhoid)</label>
+            <textarea id="contactHistory" name="contactHistory" rows="4" placeholder="Enter details about exposure to infected individuals"></textarea>
+
+            <label for="antibioticUse">Recent Antibiotic Use</label>
+            <input type="text" id="antibioticUse" name="antibioticUse" placeholder="Enter details about recent antibiotic use (if any)">
+        </div>
+
+        <!-- Symptoms Section -->
+        <div class="form-section">
+            <h2>Symptoms</h2>
+            <label for="fever">Fever</label>
+            <input type="text" id="fever" name="fever" placeholder="Enter fever details (e.g., continuous, high fever)">
+
+            <label for="abdominalPain">Abdominal Pain</label>
+            <input type="text" id="abdominalPain" name="abdominalPain" placeholder="Enter details about abdominal pain (if any)">
+
+            <label for="diarrhea">Diarrhea or Constipation</label>
+            <input type="text" id="diarrhea" name="diarrhea" placeholder="Enter details about diarrhea or constipation">
+
+            <label for="headache">Headache</label>
+            <input type="text" id="headache" name="headache" placeholder="Enter details about headache (if any)">
+
+            <label for="weakness">Weakness/Fatigue</label>
+            <input type="text" id="weakness" name="weakness" placeholder="Enter details about fatigue or weakness">
+
+            <label for="rash">Rash</label>
+            <input type="text" id="rash" name="rash" placeholder="Enter details about rash (if any, e.g., rose spots)">
+
+            <label for="nausea">Nausea/Vomiting</label>
+            <input type="text" id="nausea" name="nausea" placeholder="Enter details about nausea or vomiting (if any)">
+        </div>
+
+        <!-- Physical Examination Section -->
+        <div class="form-section">
+            <h2>Physical Examination</h2>
+            <label for="temperature">Temperature (Fever)</label>
+            <input type="text" id="temperature" name="temperature" placeholder="Enter temperature details (e.g., 103°F)">
+
+            <label for="pulse">Pulse (Heart Rate)</label>
+            <input type="text" id="pulse" name="pulse" placeholder="Enter pulse rate (e.g., 70 bpm)">
+
+            <label for="abdominalExam">Abdominal Examination</label>
+            <input type="text" id="abdominalExam" name="abdominalExam" placeholder="Enter details about abdominal tenderness or distension">
+
+            <label for="splenomegaly">Splenomegaly (Enlarged Spleen)</label>
+            <input type="text" id="splenomegaly" name="splenomegaly" placeholder="Enter details about spleen enlargement">
+
+            <label for="liverEnlargement">Liver Enlargement</label>
+            <input type="text" id="liverEnlargement" name="liverEnlargement" placeholder="Enter details about liver enlargement (if any)">
+        </div>
+
+        <!-- Laboratory Tests Section -->
+        <div class="form-section">
+            <h2>Laboratory Tests</h2>
+            <label for="bloodCulture">Blood Culture</label>
+            <input type="text" id="bloodCulture" name="bloodCulture" placeholder="Enter blood culture result details">
+
+            <label for="stoolCulture">Stool Culture</label>
+            <input type="text" id="stoolCulture" name="stoolCulture" placeholder="Enter stool culture result details">
+
+            <label for="widalTest">Widal Test</label>
+            <input type="text" id="widalTest" name="widalTest" placeholder="Enter Widal test result details">
+
+            <label for="cbc">Complete Blood Count (CBC)</label>
+            <input type="text" id="cbc" name="cbc" placeholder="Enter CBC result details (e.g., elevated white blood cell count)">
+
+            <label for="crp">C-Reactive Protein (CRP)</label>
+            <input type="text" id="crp" name="crp" placeholder="Enter CRP result details">
+        </div>
+
+        <!-- Submit Button -->
+        <div class="button-container">
+            <button type="button" onclick="showData()">Submit</button>
+        </div>
+    </form>
+
+    <!-- Output Section -->
+    <div id="output">
+        <h2>Entered Data</h2>
+        <div class="output-item">
+            <strong>Personal Medical History:</strong> <span id="outPersonalHistory"></span>
+        </div>
+        <div class="output-item">
+            <strong>Vaccination History:</strong> <span id="outVaccination"></span>
+        </div>
+        <div class="output-item">
+            <strong>Recent Travel History:</strong> <span id="outRecentTravel"></span>
+        </div>
+        <div class="output-item">
+            <strong>Contact History:</strong> <span id="outContactHistory"></span>
+        </div>
+        <div class="output-item">
+            <strong>Recent Antibiotic Use:</strong> <span id="outAntibioticUse"></span>
+        </div>
+        <div class="output-item">
+            <strong>Fever:</strong> <span id="outFever"></span>
+        </div>
+        <div class="output-item">
+            <strong>Abdominal Pain:</strong> <span id="outAbdominalPain"></span>
+        </div>
+        <div class="output-item">
+            <strong>Diarrhea/Constipation:</strong> <span id="outDiarrhea"></span>
+        </div>
+        <div class="output-item">
+            <strong>Headache:</strong> <span id="outHeadache"></span>
+        </div>
+        <div class="output-item">
+            <strong>Weakness/Fatigue:</strong> <span id="outWeakness"></span>
+        </div>
+        <div class="output-item">
+            <strong>Rash:</strong> <span id="outRash"></span>
+        </div>
+        <div class="output-item">
+            <strong>Nausea/Vomiting:</strong> <span id="outNausea"></span>
+        </div>
+        <div class="output-item">
+            <strong>Temperature:</strong> <span id="outTemperature"></span>
+        </div>
+        <div class="output-item">
+            <strong>Pulse:</strong> <span id="outPulse"></span>
+        </div>
+        <div class="output-item">
+            <strong>Abdominal Examination:</strong> <span id="outAbdominalExam"></span>
+        </div>
+        <div class="output-item">
+            <strong>Splenomegaly:</strong> <span id="outSplenomegaly"></span>
+        </div>
+        <div class="output-item">
+            <strong>Liver Enlargement:</strong> <span id="outLiverEnlargement"></span>
+        </div>
+        <div class="output-item">
+            <strong>Blood Culture:</strong> <span id="outBloodCulture"></span>
+        </div>
+        <div class="output-item">
+            <strong>Stool Culture:</strong> <span id="outStoolCulture"></span>
+        </div>
+        <div class="output-item">
+            <strong>Widal Test:</strong> <span id="outWidalTest"></span>
+        </div>
+        <div class="output-item">
+            <strong>CBC:</strong> <span id="outCbc"></span>
+        </div>
+        <div class="output-item">
+            <strong>CRP:</strong> <span id="outCrp"></span>
+        </div>
+    </div>
+
+    <script>
+        function showData() {
+            // Get data from form inputs
+            document.getElementById('outPersonalHistory').textContent = document.getElementById('personalHistory').value;
+            document.getElementById('outVaccination').textContent = document.getElementById('vaccination').value;
+            document.getElementById('outRecentTravel').textContent = document.getElementById('recentTravel').value;
+            document.getElementById('outContactHistory').textContent = document.getElementById('contactHistory').value;
+            document.getElementById('outAntibioticUse').textContent = document.getElementById('antibioticUse').value;
+
+            document.getElementById('outFever').textContent = document.getElementById('fever').value;
+            document.getElementById('outAbdominalPain').textContent = document.getElementById('abdominalPain').value;
+            document.getElementById('outDiarrhea').textContent = document.getElementById('diarrhea').value;
+            document.getElementById('outHeadache').textContent = document.getElementById('headache').value;
+            document.getElementById('outWeakness').textContent = document.getElementById('weakness').value;
+            document.getElementById('outRash').textContent = document.getElementById('rash').value;
+            document.getElementById('outNausea').textContent = document.getElementById('nausea').value;
+
+            document.getElementById('outTemperature').textContent = document.getElementById('temperature').value;
+            document.getElementById('outPulse').textContent = document.getElementById('pulse').value;
+            document.getElementById('outAbdominalExam').textContent = document.getElementById('abdominalExam').value;
+            document.getElementById('outSplenomegaly').textContent = document.getElementById('splenomegaly').value;
+            document.getElementById('outLiverEnlargement').textContent = document.getElementById('liverEnlargement').value;
+
+            document.getElementById('outBloodCulture').textContent = document.getElementById('bloodCulture').value;
+            document.getElementById('outStoolCulture').textContent = document.getElementById('stoolCulture').value;
+            document.getElementById('outWidalTest').textContent = document.getElementById('widalTest').value;
+            document.getElementById('outCbc').textContent = document.getElementById('cbc').value;
+            document.getElementById('outCrp').textContent = document.getElementById('crp').value;
+
+            // Display the output section
+            document.getElementById('output').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

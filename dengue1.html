@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dengue Fever Evaluation Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #efa5dc; padding: 20px; }
+        h1 { text-align: center; color: #333; }
+        .form-section { margin-bottom: 20px; }
+        label { font-weight: bold; display: block; margin-top: 10px; }
+        input, select, textarea { width: 100%; padding: 8px; margin-top: 5px; border-radius: 5px; border: 1px solid #ddd; }
+        button { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; font-size: 16px; cursor: pointer; border-radius: 5px; }
+        button:hover { background-color: #45a049; }
+        #output { margin-top: 20px; padding: 20px; background-color: #fff; border: 1px solid #ddd; display: none; }
+    </style>
+</head>
+<body>
+
+<h1>Dengue Fever Evaluation Form</h1>
+<form id="dengueForm">
+    <div class="form-section">
+        <h2>Personal Information</h2>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name">
+
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" placeholder="Enter your age">
+
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+    </div>
+
+    <div class="form-section">
+        <h2>Medical History</h2>
+        <label for="recentTravel">Recent Travel to Dengue-endemic Areas</label>
+        <select id="recentTravel" name="recentTravel">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="mosquitoContact">Contact with Mosquitoes (High-risk areas)</label>
+        <select id="mosquitoContact" name="mosquitoContact">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="previousDengue">Previous Dengue Infection</label>
+        <select id="previousDengue" name="previousDengue">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+    </div>
+
+    <div class="form-section">
+        <h2>Symptoms</h2>
+        <label for="fever">Fever</label>
+        <select id="fever" name="fever">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="rash">Rash</label>
+        <select id="rash" name="rash">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="headache">Headache</label>
+        <select id="headache" name="headache">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="musclePain">Muscle and Joint Pain</label>
+        <select id="musclePain" name="musclePain">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="nausea">Nausea/Vomiting</label>
+        <select id="nausea" name="nausea">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="abdominalPain">Abdominal Pain</label>
+        <select id="abdominalPain" name="abdominalPain">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+    </div>
+
+    <div class="form-section">
+        <h2>Physical Examination</h2>
+        <label for="temperature">Temperature</label>
+        <input type="number" id="temperature" name="temperature" placeholder="Enter temperature in °C">
+
+        <label for="pulse">Pulse</label>
+        <input type="number" id="pulse" name="pulse" placeholder="Enter pulse rate in bpm">
+
+        <label for="abdominalTenderness">Abdominal Tenderness</label>
+        <select id="abdominalTenderness" name="abdominalTenderness">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+    </div>
+
+    <div class="form-section">
+        <button type="button" onclick="showData()">Submit</button>
+    </div>
+</form>
+
+<div id="output">
+    <h2>Entered Data</h2>
+    <div><strong>Name:</strong> <span id="outName"></span></div>
+    <div><strong>Age:</strong> <span id="outAge"></span></div>
+    <div><strong>Gender:</strong> <span id="outGender"></span></div>
+    <div><strong>Recent Travel to Dengue-endemic Areas:</strong> <span id="outRecentTravel"></span></div>
+    <div><strong>Contact with Mosquitoes:</strong> <span id="outMosquitoContact"></span></div>
+    <div><strong>Previous Dengue Infection:</strong> <span id="outPreviousDengue"></span></div>
+    <div><strong>Fever:</strong> <span id="outFever"></span></div>
+    <div><strong>Rash:</strong> <span id="outRash"></span></div>
+    <div><strong>Headache:</strong> <span id="outHeadache"></span></div>
+    <div><strong>Muscle and Joint Pain:</strong> <span id="outMusclePain"></span></div>
+    <div><strong>Nausea/Vomiting:</strong> <span id="outNausea"></span></div>
+    <div><strong>Abdominal Pain:</strong> <span id="outAbdominalPain"></span></div>
+    <div><strong>Temperature:</strong> <span id="outTemperature"></span></div>
+    <div><strong>Pulse:</strong> <span id="outPulse"></span></div>
+    <div><strong>Abdominal Tenderness:</strong> <span id="outAbdominalTenderness"></span></div>
+</div>
+
+<script>
+    function showData() {
+        document.getElementById('outName').textContent = document.getElementById('name').value;
+        document.getElementById('outAge').textContent = document.getElementById('age').value;
+        document.getElementById('outGender').textContent = document.getElementById('gender').value;
+        document.getElementById('outRecentTravel').textContent = document.getElementById('recentTravel').value;
+        document.getElementById('outMosquitoContact').textContent = document.getElementById('mosquitoContact').value;
+        document.getElementById('outPreviousDengue').textContent = document.getElementById('previousDengue').value;
+        document.getElementById('outFever').textContent = document.getElementById('fever').value;
+        document.getElementById('outRash').textContent = document.getElementById('rash').value;
+        document.getElementById('outHeadache').textContent = document.getElementById('headache').value;
+        document.getElementById('outMusclePain').textContent = document.getElementById('musclePain').value;
+        document.getElementById('outNausea').textContent = document.getElementById('nausea').value;
+        document.getElementById('outAbdominalPain').textContent = document.getElementById('abdominalPain').value;
+        document.getElementById('outTemperature').textContent = document.getElementById('temperature').value;
+        document.getElementById('outPulse').textContent = document.getElementById('pulse').value;
+        document.getElementById('outAbdominalTenderness').textContent = document.getElementById('abdominalTenderness').value;
+        document.getElementById('output').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>

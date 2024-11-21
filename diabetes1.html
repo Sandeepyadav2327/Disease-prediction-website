@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Check Form</title>
+    <style>
+        /* Simple styling to separate sections */
+        fieldset {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 5px 0;
+        }
+        .result {
+            margin-top: 30px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 10px;
+            background-color: #ec8fd3;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        .button-container {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Diabetes Check Form</h2>
+    
+    <form id="diabetesForm">
+        <!-- Blood Glucose Tests -->
+        <fieldset>
+            <legend><strong>Blood Glucose Tests</strong></legend>
+            
+            <label for="fasting_glucose">Fasting Plasma Glucose (FPG): </label>
+            <input type="number" id="fasting_glucose" name="fasting_glucose" min="0" step="any" placeholder="mg/dL" required><br><br>
+            
+            <label for="ogtt">Oral Glucose Tolerance Test (OGTT - 2 hrs): </label>
+            <input type="number" id="ogtt" name="ogtt" min="0" step="any" placeholder="mg/dL" required><br><br>
+            
+            <label for="a1c">Hemoglobin A1c (%): </label>
+            <input type="number" id="a1c" name="a1c" min="0" step="any" placeholder="%" required><br><br>
+        </fieldset>
+
+        <!-- Medical History and Risk Factors -->
+        <fieldset>
+            <legend><strong>Medical History and Risk Factors</strong></legend>
+            
+            <label for="family_history">Family History of Diabetes: </label>
+            <select id="family_history" name="family_history">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select><br><br>
+            
+            <label for="age">Age: </label>
+            <input type="number" id="age" name="age" min="0" placeholder="Years" required><br><br>
+            
+            <label for="gestational_diabetes">History of Gestational Diabetes (for women): </label>
+            <select id="gestational_diabetes" name="gestational_diabetes">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select><br><br>
+            
+            <label for="hypertension">History of Hypertension: </label>
+            <select id="hypertension" name="hypertension">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select><br><br>
+            
+            <label for="high_cholesterol">History of High Cholesterol: </label>
+            <select id="high_cholesterol" name="high_cholesterol">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select><br><br>
+        </fieldset>
+
+        <!-- Physical Examination Data -->
+        <fieldset>
+            <legend><strong>Physical Examination</strong></legend>
+            
+            <label for="bmi">Body Mass Index (BMI): </label>
+            <input type="number" id="bmi" name="bmi" min="0" step="any" placeholder="BMI" required><br><br>
+            
+            <label for="waist">Waist Circumference (in cm): </label>
+            <input type="number" id="waist" name="waist" min="0" step="any" placeholder="cm" required><br><br>
+            
+            <label for="blood_pressure">Blood Pressure (Systolic/Diastolic): </label>
+            <input type="text" id="blood_pressure" name="blood_pressure" placeholder="e.g., 120/80" required><br><br>
+        </fieldset>
+
+        <!-- Lifestyle Factors -->
+        <fieldset>
+            <legend><strong>Lifestyle Factors</strong></legend>
+            
+            <label for="diet">Diet (High in Sugar, Fats, Processed Foods): </label>
+            <select id="diet" name="diet">
+                <option value="healthy">Healthy</option>
+                <option value="unhealthy">Unhealthy</option>
+            </select><br><br>
+            
+            <label for="physical_activity">Physical Activity Level: </label>
+            <select id="physical_activity" name="physical_activity">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+            </select><br><br>
+            
+            <label for="smoking">Smoking: </label>
+            <select id="smoking" name="smoking">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select><br><br>
+            
+            <label for="alcohol">Alcohol Consumption: </label>
+            <select id="alcohol" name="alcohol">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select><br><br>
+        </fieldset>
+
+        <!-- Submit Button -->
+        <br>
+        <button type="button" onclick="displayData()">Submit</button>
+    </form>
+
+    <!-- Result Section -->
+    <div id="result" class="result" style="display: none;">
+        <h3>Entered Data:</h3>
+        <p><strong>Blood Glucose Tests:</strong></p>
+        <p>Fasting Plasma Glucose (FPG): <span id="result_fasting_glucose"></span> mg/dL</p>
+        <p>Oral Glucose Tolerance Test (OGTT - 2 hrs): <span id="result_ogtt"></span> mg/dL</p>
+        <p>Hemoglobin A1c: <span id="result_a1c"></span>%</p>
+        
+        <p><strong>Medical History and Risk Factors:</strong></p>
+        <p>Family History of Diabetes: <span id="result_family_history"></span></p>
+        <p>Age: <span id="result_age"></span> years</p>
+        <p>History of Gestational Diabetes: <span id="result_gestational_diabetes"></span></p>
+        <p>History of Hypertension: <span id="result_hypertension"></span></p>
+        <p>History of High Cholesterol: <span id="result_high_cholesterol"></span></p>
+        
+        <p><strong>Physical Examination:</strong></p>
+        <p>Body Mass Index (BMI): <span id="result_bmi"></span></p>
+        <p>Waist Circumference: <span id="result_waist"></span> cm</p>
+        <p>Blood Pressure: <span id="result_blood_pressure"></span></p>
+        
+        <p><strong>Lifestyle Factors:</strong></p>
+        <p>Diet: <span id="result_diet"></span></p>
+        <p>Physical Activity Level: <span id="result_physical_activity"></span></p>
+        <p>Smoking: <span id="result_smoking"></span></p>
+        <p>Alcohol Consumption: <span id="result_alcohol"></span></p>
+    </div>
+
+    <script>
+        function displayData() {
+            // Get form values
+            document.getElementById("result_fasting_glucose").textContent = document.getElementById("fasting_glucose").value;
+            document.getElementById("result_ogtt").textContent = document.getElementById("ogtt").value;
+            document.getElementById("result_a1c").textContent = document.getElementById("a1c").value;
+            
+            document.getElementById("result_family_history").textContent = document.getElementById("family_history").value;
+            document.getElementById("result_age").textContent = document.getElementById("age").value;
+            document.getElementById("result_gestational_diabetes").textContent = document.getElementById("gestational_diabetes").value;
+            document.getElementById("result_hypertension").textContent = document.getElementById("hypertension").value;
+            document.getElementById("result_high_cholesterol").textContent = document.getElementById("high_cholesterol").value;
+            
+            document.getElementById("result_bmi").textContent = document.getElementById("bmi").value;
+            document.getElementById("result_waist").textContent = document.getElementById("waist").value;
+            document.getElementById("result_blood_pressure").textContent = document.getElementById("blood_pressure").value;
+            
+            document.getElementById("result_diet").textContent = document.getElementById("diet").value;
+            document.getElementById("result_physical_activity").textContent = document.getElementById("physical_activity").value;
+            document.getElementById("result_smoking").textContent = document.getElementById("smoking").value;
+            document.getElementById("result_alcohol").textContent = document.getElementById("alcohol").value;
+
+            // Show the result div
+            document.getElementById("result").style.display = "block";
+        }
+    </script>
+</body>
+</html>

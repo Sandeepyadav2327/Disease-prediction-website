@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Disease Awareness</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header and Navigation */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin-top: 10px;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Section Styling */
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #3498db;
+}
+
+/* Button Styling */
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #2c3e50;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsive Design for Mobile Devices */
+@media screen and (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    section {
+        padding: 15px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Lung Disease Awareness</h1>
+        <nav>
+            <ul>
+                <li><a href="#intro">About Lung Disease</a></li>
+                <li><a href="#symptoms">Symptoms</a></li>
+                <li><a href="#prevention">Prevention</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="intro">
+        <h2>What is Lung Disease?</h2>
+        <p>Lung disease refers to any condition that affects the lungs and impairs the ability to breathe properly. It includes diseases such as chronic obstructive pulmonary disease (COPD), asthma, pneumonia, and lung cancer. Lung disease can be caused by a variety of factors, including smoking, environmental pollution, and genetic predisposition.</p>
+    </section>
+
+    <section id="symptoms">
+        <h2>Symptoms of Lung Disease</h2>
+        <p>Common symptoms of lung disease include:</p>
+        <ul>
+            <li>Coughing (with or without mucus)</li>
+            <li>Shortness of breath</li>
+            <li>Chest pain or tightness</li>
+            <li>Wheezing</li>
+            <li>Fatigue</li>
+            <li>Frequent respiratory infections</li>
+        </ul>
+        <button onclick="toggleMoreSymptoms()">Click here to learn more symptoms</button>
+        <div id="moreSymptoms" style="display:none;">
+            <p>Other symptoms of lung disease may include:</p>
+            <ul>
+                <li>Unexplained weight loss</li>
+                <li>Blue lips or fingertips (cyanosis)</li>
+                <li>Clubbing of the fingers (a condition where the tips of fingers and toes become rounder or wider)</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="prevention">
+        <h2>How to Prevent Lung Disease</h2>
+        <p>While some lung diseases cannot be prevented, there are steps you can take to reduce the risk of developing lung problems:</p>
+        <ul>
+            <li>Quit smoking and avoid exposure to secondhand smoke.</li>
+            <li>Use protective equipment when working in environments with harmful chemicals or pollutants.</li>
+            <li>Exercise regularly to improve lung capacity and function.</li>
+            <li>Avoid exposure to airborne toxins such as pollution or radon.</li>
+            <li>Get vaccinated against pneumonia and influenza.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>© 2024 Lung Health Foundation</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Function to toggle the visibility of additional symptoms
+function toggleMoreSymptoms() {
+    var moreSymptoms = document.getElementById("moreSymptoms");
+    if (moreSymptoms.style.display === "none") {
+        moreSymptoms.style.display = "block";
+    } else {
+        moreSymptoms.style.display = "none";
+    }
+}
+
+    </script>
+</body>
+</html>

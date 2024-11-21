@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malaria Diagnosis Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #e5a2ce; padding: 20px; }
+        h1 { text-align: center; color: #333; }
+        .form-section { margin-bottom: 20px; }
+        label { font-weight: bold; display: block; margin-top: 10px; }
+        input, select, textarea { width: 100%; padding: 8px; margin-top: 5px; border-radius: 5px; border: 1px solid #ddd; }
+        button { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; font-size: 16px; cursor: pointer; border-radius: 5px; }
+        button:hover { background-color: #45a049; }
+        #output { margin-top: 20px; padding: 20px; background-color: #fff; border: 1px solid #ddd; display: none; }
+    </style>
+</head>
+<body>
+
+<h1>Malaria Diagnosis Form</h1>
+<form id="malariaForm">
+    <!-- Personal Information Section -->
+    <div class="form-section">
+        <h2>Personal Information</h2>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" placeholder="Enter your age" required>
+
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+    </div>
+
+    <!-- Medical History Section -->
+    <div class="form-section">
+        <h2>Medical History</h2>
+        <label for="recentTravel">Recent Travel to Malaria-Endemic Areas</label>
+        <select id="recentTravel" name="recentTravel" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="previousMalaria">History of Malaria</label>
+        <select id="previousMalaria" name="previousMalaria" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="pregnant">Pregnant</label>
+        <select id="pregnant" name="pregnant">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+    </div>
+
+    <!-- Symptoms Section -->
+    <div class="form-section">
+        <h2>Symptoms</h2>
+        <label for="fever">Fever</label>
+        <select id="fever" name="fever" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="chills">Chills</label>
+        <select id="chills" name="chills" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="sweating">Sweating</label>
+        <select id="sweating" name="sweating" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="headache">Headache</label>
+        <select id="headache" name="headache" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="nausea">Nausea or Vomiting</label>
+        <select id="nausea" name="nausea" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="musclePain">Muscle Pain</label>
+        <select id="musclePain" name="musclePain" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="fatigue">Fatigue</label>
+        <select id="fatigue" name="fatigue" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+    </div>
+
+    <!-- Laboratory Tests Section -->
+    <div class="form-section">
+        <h2>Laboratory Tests</h2>
+        <label for="bloodTest">Blood Test (Positive for Malaria Parasite)</label>
+        <select id="bloodTest" name="bloodTest" required>
+            <option value="positive">Positive</option>
+            <option value="negative">Negative</option>
+        </select>
+
+        <label for="rapidTest">Rapid Diagnostic Test (RDT) Results</label>
+        <select id="rapidTest" name="rapidTest" required>
+            <option value="positive">Positive</option>
+            <option value="negative">Negative</option>
+        </select>
+
+        <label for="hemoglobin">Hemoglobin Level (g/dL)</label>
+        <input type="number" id="hemoglobin" name="hemoglobin" step="0.1" placeholder="Enter hemoglobin level" required>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-section">
+        <button type="button" onclick="showData()">Submit</button>
+    </div>
+</form>
+
+<!-- Display Entered Data -->
+<div id="output">
+    <h2>Entered Data</h2>
+    <div><strong>Name:</strong> <span id="outName"></span></div>
+    <div><strong>Age:</strong> <span id="outAge"></span></div>
+    <div><strong>Gender:</strong> <span id="outGender"></span></div>
+    <div><strong>Recent Travel to Malaria-Endemic Areas:</strong> <span id="outRecentTravel"></span></div>
+    <div><strong>History of Malaria:</strong> <span id="outPreviousMalaria"></span></div>
+    <div><strong>Pregnant:</strong> <span id="outPregnant"></span></div>
+    <div><strong>Fever:</strong> <span id="outFever"></span></div>
+    <div><strong>Chills:</strong> <span id="outChills"></span></div>
+    <div><strong>Sweating:</strong> <span id="outSweating"></span></div>
+    <div><strong>Headache:</strong> <span id="outHeadache"></span></div>
+    <div><strong>Nausea or Vomiting:</strong> <span id="outNausea"></span></div>
+    <div><strong>Muscle Pain:</strong> <span id="outMusclePain"></span></div>
+    <div><strong>Fatigue:</strong> <span id="outFatigue"></span></div>
+    <div><strong>Blood Test Result:</strong> <span id="outBloodTest"></span></div>
+    <div><strong>Rapid Diagnostic Test Result:</strong> <span id="outRapidTest"></span></div>
+    <div><strong>Hemoglobin Level:</strong> <span id="outHemoglobin"></span></div>
+</div>
+
+<script>
+    function showData() {
+        document.getElementById('outName').textContent = document.getElementById('name').value;
+        document.getElementById('outAge').textContent = document.getElementById('age').value;
+        document.getElementById('outGender').textContent = document.getElementById('gender').value;
+        document.getElementById('outRecentTravel').textContent = document.getElementById('recentTravel').value;
+        document.getElementById('outPreviousMalaria').textContent = document.getElementById('previousMalaria').value;
+        document.getElementById('outPregnant').textContent = document.getElementById('pregnant').value;
+        document.getElementById('outFever').textContent = document.getElementById('fever').value;
+        document.getElementById('outChills').textContent = document.getElementById('chills').value;
+        document.getElementById('outSweating').textContent = document.getElementById('sweating').value;
+        document.getElementById('outHeadache').textContent = document.getElementById('headache').value;
+        document.getElementById('outNausea').textContent = document.getElementById('nausea').value;
+        document.getElementById('outMusclePain').textContent = document.getElementById('musclePain').value;
+        document.getElementById('outFatigue').textContent = document.getElementById('fatigue').value;
+        document.getElementById('outBloodTest').textContent = document.getElementById('bloodTest').value;
+        document.getElementById('outRapidTest').textContent = document.getElementById('rapidTest').value;
+        document.getElementById('outHemoglobin').textContent = document.getElementById('hemoglobin').value;
+        document.getElementById('output').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>

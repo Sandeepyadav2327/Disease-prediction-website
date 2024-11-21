@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dengue Fever Awareness</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    background-color: #2980b9;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin-top: 10px;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Section Styling */
+section {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #3498db;
+}
+
+ul {
+    margin-top: 10px;
+}
+
+ul li {
+    margin: 8px 0;
+}
+
+/* Button Styling */
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #2980b9;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    section {
+        padding: 15px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Dengue Fever Awareness</h1>
+        <nav>
+            <ul>
+                <li><a href="#intro">What is Dengue?</a></li>
+                <li><a href="#symptoms">Symptoms</a></li>
+                <li><a href="#prevention">Prevention</a></li>
+                <li><a href="#treatment">Treatment</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="intro">
+        <h2>What is Dengue Fever?</h2>
+        <p>Dengue fever is a viral illness caused by the dengue virus, transmitted primarily by Aedes mosquitoes. It is prevalent in tropical and subtropical regions. Symptoms can range from mild to severe, and in some cases, dengue can progress to a more serious form known as severe dengue or dengue hemorrhagic fever.</p>
+    </section>
+
+    <section id="symptoms">
+        <h2>Symptoms of Dengue Fever</h2>
+        <p>Common symptoms of dengue fever include:</p>
+        <ul>
+            <li>High fever (up to 104°F or 40°C)</li>
+            <li>Severe headache</li>
+            <li>Pain behind the eyes</li>
+            <li>Severe joint and muscle pain</li>
+            <li>Nausea and vomiting</li>
+            <li>Fatigue and weakness</li>
+            <li>Rash (can appear 3-4 days after the fever starts)</li>
+        </ul>
+        <button onclick="toggleMoreSymptoms()">Click here for more symptoms</button>
+        <div id="moreSymptoms" style="display:none;">
+            <p>Additional symptoms may include:</p>
+            <ul>
+                <li>Minor bleeding (nosebleeds or gum bleeding)</li>
+                <li>Low blood pressure</li>
+                <li>Enlarged lymph nodes</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="prevention">
+        <h2>How to Prevent Dengue Fever</h2>
+        <ul>
+            <li>Eliminate mosquito breeding sites (remove standing water from containers).</li>
+            <li>Use mosquito nets or repellents, especially during early morning and evening.</li>
+            <li>Wear long-sleeved clothing to avoid mosquito bites.</li>
+            <li>Stay in well-screened or air-conditioned rooms.</li>
+            <li>Consider vaccination for dengue, available in some countries for high-risk populations.</li>
+        </ul>
+    </section>
+
+    <section id="treatment">
+        <h2>Treatment for Dengue Fever</h2>
+        <p>Currently, there is no specific antiviral treatment for dengue fever. Treatment focuses on relieving symptoms. This includes:</p>
+        <ul>
+            <li>Staying hydrated by drinking fluids</li>
+            <li>Taking pain relievers like acetaminophen (avoid ibuprofen or aspirin)</li>
+            <li>Resting to allow the body to recover</li>
+            <li>In severe cases, hospitalization may be required to monitor blood pressure and fluid balance.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>© 2024 Dengue Awareness Campaign</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        
+        // Function to toggle visibility of additional symptoms
+function toggleMoreSymptoms() {
+    var moreSymptoms = document.getElementById("moreSymptoms");
+    if (moreSymptoms.style.display === "none") {
+        moreSymptoms.style.display = "block";
+    } else {
+        moreSymptoms.style.display = "none";
+    }
+}
+
+    </script>
+</body>
+</html>

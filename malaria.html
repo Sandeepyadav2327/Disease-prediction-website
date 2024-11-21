@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malaria Awareness</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    background-color: #2ecc71;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin-top: 10px;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Section Styling */
+section {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #27ae60;
+}
+
+ul {
+    margin-top: 10px;
+}
+
+ul li {
+    margin: 8px 0;
+}
+
+/* Button Styling */
+button {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #2ecc71;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #2ecc71;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    section {
+        padding: 15px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Malaria Awareness</h1>
+        <nav>
+            <ul>
+                <li><a href="#intro">What is Malaria?</a></li>
+                <li><a href="#symptoms">Symptoms</a></li>
+                <li><a href="#prevention">Prevention</a></li>
+                <li><a href="#treatment">Treatment</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="intro">
+        <h2>What is Malaria?</h2>
+        <p>Malaria is a life-threatening disease caused by parasites that are transmitted to humans through the bites of infected female Anopheles mosquitoes. It is prevalent in tropical and subtropical regions. Malaria is preventable and treatable, but without proper care, it can lead to severe complications and even death.</p>
+    </section>
+
+    <section id="symptoms">
+        <h2>Symptoms of Malaria</h2>
+        <p>Common symptoms of malaria include:</p>
+        <ul>
+            <li>High fever</li>
+            <li>Chills and sweating</li>
+            <li>Headache</li>
+            <li>Fatigue and weakness</li>
+            <li>Muscle and joint pain</li>
+            <li>Nausea and vomiting</li>
+            <li>Abdominal pain</li>
+        </ul>
+        <button onclick="toggleMoreSymptoms()">Click here for more symptoms</button>
+        <div id="moreSymptoms" style="display:none;">
+            <p>Additional symptoms may include:</p>
+            <ul>
+                <li>Anemia (low red blood cell count)</li>
+                <li>Jaundice (yellowing of the skin and eyes)</li>
+                <li>Confusion or seizures in severe cases</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="prevention">
+        <h2>How to Prevent Malaria</h2>
+        <ul>
+            <li>Use insect repellent with DEET on exposed skin.</li>
+            <li>Sleep under insecticide-treated mosquito nets, especially at night.</li>
+            <li>Wear long sleeves and pants to minimize mosquito bites.</li>
+            <li>Eliminate standing water around your home where mosquitoes breed.</li>
+            <li>Take antimalarial drugs as prescribed when traveling to endemic areas.</li>
+        </ul>
+    </section>
+
+    <section id="treatment">
+        <h2>Treatment for Malaria</h2>
+        <p>Malaria is treated with antimalarial medications. The treatment regimen depends on the type of malaria parasite, the severity of the disease, and the region where the infection was acquired. Some common treatments include:</p>
+        <ul>
+            <li>Artemisinin-based combination therapies (ACTs) for uncomplicated malaria</li>
+            <li>Chloroquine or quinine for certain strains of malaria</li>
+            <li>Hospitalization and intravenous treatment for severe malaria cases</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>© 2024 Malaria Awareness Campaign</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+
+        // Function to toggle visibility of additional symptoms
+function toggleMoreSymptoms() {
+    var moreSymptoms = document.getElementById("moreSymptoms");
+    if (moreSymptoms.style.display === "none") {
+        moreSymptoms.style.display = "block";
+    } else {
+        moreSymptoms.style.display = "none";
+    }
+}
+
+    </script>
+</body>
+</html>
